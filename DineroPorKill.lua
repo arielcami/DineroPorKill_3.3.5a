@@ -19,6 +19,7 @@ local nivel = npc:GetLevel()
 local reward = nivel*X -- Nivel del jugador multiplicado por la X del principio.
 local resta, elite = (pj:GetLevel() - npc:GetLevel()), (reward*2)
 
+	if npc:GetCreatureType() == 8 then pj:SendBroadcastMessage("|cffff0000No se recompensa matar alimañas.") return end --> No se recompensa matar alimañas.
 	if kill then if (npc:IsWorldBoss() == true) then return else --> No hacer nada si muere un jefe. Esto para que se pueda tener un BossAnnouncer por separado.	
 
 		if resta > 5 then pj:SendBroadcastMessage("|cffff0000No se recompensan las muertes fáciles...") return
